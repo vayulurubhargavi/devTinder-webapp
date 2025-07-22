@@ -10,3 +10,11 @@
 --create BrowserRouter >Routes>Route="/" element=Body >RouteChildren
 --create an Outlet in the Body component
 --Create footer.jsx file
+--create a Login form
+--install axios
+--CORS error in api call-install cors in backend and add the cors middleware to app and pass origin=FE local host url, credentials:true(to pass the cookie to browser from BE )
+--now on FE side in axios call include {withCrederntials:true} to store the cookies in Application tab of browser>storage
+
+--Install react-redux and @reduxjs/toolkit
+--create appstore and wrap the app with provider and pass the store
+
