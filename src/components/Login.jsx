@@ -1,13 +1,15 @@
 import { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { addUser } from "../store/userSlice";
 import { BASE_URL } from "../utils/constants";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("Elon123@gmail.com");
+  const [password, setPassword] = useState("Elon@123");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
@@ -23,6 +25,7 @@ const Login = () => {
       );
       console.log(res.data);
       dispatch(addUser(res.data));
+      return navigate("/feed"); // Redirect to feed page after successful login
     } catch (err) {
       console.log(err);
     }

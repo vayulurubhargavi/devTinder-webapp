@@ -17,4 +17,12 @@
 
 --Install react-redux and @reduxjs/toolkit
 --create appstore and wrap the app with provider and pass the store
+--create a slice and add the reducer to the appstore
+--add the redux devtoold to chrome
+--navbar should update as soon as user logs in
+--refactor the code  by adding a constansts file
+
+--you should not be able to access other routes without login
+
+
 
