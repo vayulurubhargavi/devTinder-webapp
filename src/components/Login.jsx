@@ -8,6 +8,7 @@ import { BASE_URL } from "../utils/constants";
 const Login = () => {
   const [email, setEmail] = useState("Elon123@gmail.com");
   const [password, setPassword] = useState("Elon@123");
+  const [error, setError] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -27,6 +28,7 @@ const Login = () => {
       dispatch(addUser(res.data));
       return navigate("/feed"); // Redirect to feed page after successful login
     } catch (err) {
+      setError(err?.response?.data || "Login failed");
       console.log(err);
     }
   };
@@ -89,7 +91,7 @@ const Login = () => {
               title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
             />
           </label>
-
+          <p className="text-red-500">{error}</p>
           <div className="card-actions justify-center m-2">
             <button className="btn btn-primary flex " onClick={handleLogin}>
               Login
