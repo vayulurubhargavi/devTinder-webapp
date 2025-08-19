@@ -27,3 +27,5 @@
 ---feedpage-get the feed api result and add it to the Slice and
 --build the user card on feed page
 --profile page
+--show toastt message on saving the profile
+--see all my connections

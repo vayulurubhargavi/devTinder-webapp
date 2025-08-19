@@ -6,7 +6,7 @@ import { addUser } from "../store/userSlice";
 import { BASE_URL } from "../utils/constants";
 
 const Login = () => {
-  const [email, setEmail] = useState("Elon123@gmail.com");
+  const [email, setEmail] = useState("elon123@gmail.com");
   const [password, setPassword] = useState("Elon@123");
   const [error, setError] = useState("");
   const dispatch = useDispatch();
@@ -24,9 +24,9 @@ const Login = () => {
           withCredentials: true, // Include cookies in the request and store in Application tab of browswer
         }
       );
-      console.log(res.data);
+
       dispatch(addUser(res.data));
-      return navigate("/feed"); // Redirect to feed page after successful login
+      return navigate("/"); // Redirect to feed page after successful login
     } catch (err) {
       setError(err?.response?.data || "Login failed");
       console.log(err);

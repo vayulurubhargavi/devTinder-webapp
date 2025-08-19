@@ -1,8 +1,6 @@
 import React from "react";
 
 const UserCard = ({ user }) => {
-  console.log(user.firstName, "---feeeddata");
-  //   const { photourl, firstName, lastName, age, gender } = feedData;
   return (
     <div className="flex justify-center my-10">
       <div className="card bg-base-300 w-75 shadow-sm ">
@@ -18,6 +16,7 @@ const UserCard = ({ user }) => {
               {"age:" + user.age + " gender:" + user.gender}
             </p>
           )}
+          <p>{user.about}</p>
           <div className="card-actions justify-center mt-2">
             <button className="btn btn-primary">Ignore</button>
             <button className="btn btn-secondary">Interested</button>

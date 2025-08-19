@@ -21,7 +21,7 @@ const Body = () => {
       const res = await axios.get(BASE_URL + "/profile/view", {
         withCredentials: true,
       });
-      console.log(res.data);
+     
       dispatch(addUser(res.data)); // Update user data in the store
     } catch (err) {
       if (err.status === 401) {
