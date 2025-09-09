@@ -26,6 +26,16 @@ const Feed = () => {
     fetchFeed();
   }, []);
 
+  if (!feedData) return;
+
+  if (feedData.length <= 0) {
+    return (
+      <h1 className="text-center text-white text-2xl my-10">
+        No more users in feed
+      </h1>
+    );
+  }
+
   return (
     feedData && (
       <div>

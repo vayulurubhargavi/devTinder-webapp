@@ -46,7 +46,7 @@ const Connections = () => {
 
         console.log(connection, "connection");
         return (
-          <div className="flex m-4 p-4 rounded-lg bg-base-300 w-1/2">
+          <div className="flex m-4 p-4 rounded-lg bg-base-300 w-1/2 mx-auto">
             <div>
               <img
                 alt="photo"

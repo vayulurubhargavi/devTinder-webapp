@@ -29,3 +29,10 @@
 --profile page
 --show toastt message on saving the profile
 --see all my connections
+--see the requests received from other users 
+--feature--accept/reject other users
+--send/ignore the user card from feed
+
+--send/ignore user card from feed
+--signup new user
+--e2e testing
