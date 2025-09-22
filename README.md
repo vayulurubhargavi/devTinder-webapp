@@ -29,10 +29,49 @@
 --profile page
 --show toastt message on saving the profile
 --see all my connections
---see the requests received from other users 
+--see the requests received from other users
 --feature--accept/reject other users
 --send/ignore the user card from feed
 
 --send/ignore user card from feed
 --signup new user
 --e2e testing
+
+---deployment using AWS--
+1.signup in AWS and create an account
+2.launch the instance
+3.change the permission for chmod 400 devTinder-secret.pem
+4.connect to the machine using ssh -i "devTinder-secret.pem" ubuntu@ec2-56-228-21-252.eu-north-1.compute.amazonaws.com
+5.install the node version v22.16.0
+6.clone the FE/BE projects 7. do ls to get the projects list -> go to devtinder app
+8.install the dependancies by npm install -> then do npm run build
+9.update the system using sudo apt update
+10 .install the nginx using-- sudo apt install nginx 11. start the nginx sudo systemctl start nginx 12. copy code from dist(build) files to /var/www/html/
+13.sudo scp -r dist/\* to /var/www/html
+14.enable port 80 on the instance
+
+--backend deployment
+
+1.allowed the ec2 instance public ip on mongodb atlas server
+2.npm install pm2 -g --install the pm2 package to run the server the 24/7 3. run the command pm2 start npm -- start
+4. to stop the process pm2 stop npm
+5.modify the base url in FE project to /api
+
+frontend is running on : http://13.60.35.6/
+backlend is running on : http://13.60.35.6:7777/
+
+domain name : devtinder.com =>13.60.35.6
+
+fe: devtinder.com
+be: devtinder.com:7777 = devtinder.com/api
+
+nginx proxy pass config---
+server_name 13.60.35.6;
+location /api/ {
+proxy_pass http://127.0.0.1:7777/; # Node app
+proxy_http_version 1.1;
+proxy_set_header Upgrade $http_upgrade;
+proxy_set_header Connection 'upgrade';
+proxy_set_header Host $host;
+proxy_cache_bypass $http_upgrade;
+}
